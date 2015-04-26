@@ -362,7 +362,7 @@ module.exports = function (grunt) {
 	    shell: {
 	        cordova: {
 	        	command: function (target) {
-                    return target == 'android' ? 'cordova run android' : target == 'ios' ? 'cordova build ios' : 'cordova build browser'
+                    return 'cordova build ' + target
                 },
 	            options: {
 	                execOptions: {
@@ -440,7 +440,7 @@ module.exports = function (grunt) {
 	}
 
 
-	grunt.registerTask('serve', 'Compile then start a connect web server', function (project) {
+	grunt.registerTask('serve', 'Compile then start a connect web server', function () {
 
 		appConfig.dist = appConfig.app;
 		getProjectDetails();
@@ -457,7 +457,7 @@ module.exports = function (grunt) {
 		]);
 	});
 
-	grunt.registerTask('build', 'Compile for deploy', function (target, project) {
+	grunt.registerTask('build', 'Compile for deploy', function (target) {
 
 		var tasks = ['prompt:buildIcons','prompt:buildCordova','real_build']
 
@@ -541,12 +541,5 @@ module.exports = function (grunt) {
 		]
 
 		grunt.task.run(tasks);
-	});
-
-
-	grunt.registerTask('gruntTest', 'test a single thing', function (target,project) {
-		getProjectDetails();
-
-		grunt.task.run(['subgrunt:android']);
 	});
 };

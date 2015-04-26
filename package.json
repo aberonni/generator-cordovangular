@@ -1,7 +1,7 @@
 {
 	"name": "generator-cordovangular",
 	"version": "0.1.0",
-	"description": "A yeoman generator that generates an angular based cordova application.",
+	"description": "A yeoman generator that generates an angular and coffeescript based cordova application.",
 	"files":[
 		"app"
 	],
@@ -12,10 +12,11 @@
 	"keywords": [
 		"yeoman-generator",
 		"cordova",
-		"angularjs"
+		"angularjs",
+		"coffeescript"
 	],
 	"author": "Domenico Gemoli",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/aberonni/generator-cordovangular/issues"
 	},

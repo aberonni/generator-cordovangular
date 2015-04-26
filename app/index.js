@@ -94,13 +94,14 @@ module.exports = yeoman.generators.Base.extend({
 
 		this.installDependencies({
 			callback:function(){
-				this.log('Creating cordova project');
+
+				this.log('\nFinished running ' + chalk.yellow('npm install && bower install') + ' for you!\n\nNow creating the '+ chalk.yellow('cordova project') + '.');
 
 				var self = this
 
 				setTimeout(function() {
 					self.spawnCommand('grunt',['create']);
-				}, 300);
+				}, 1000);
 
 			}.bind(this)
 		});
