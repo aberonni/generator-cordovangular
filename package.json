@@ -1,0 +1,28 @@
+{
+	"name": "generator-cordovangular",
+	"version": "0.1.0",
+	"description": "A yeoman generator that generates an angular based cordova application.",
+	"files":[
+		"app"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aberonni/generator-cordovangular.git"
+	},
+	"keywords": [
+		"yeoman-generator",
+		"cordova",
+		"angularjs"
+	],
+	"author": "Domenico Gemoli",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/aberonni/generator-cordovangular/issues"
+	},
+	"homepage": "https://github.com/aberonni/generator-cordovangular",
+	"dependencies": {
+		"yeoman-generator": "^0.19.2",
+		"chalk": "^1.0.0",
+    	"yosay": "^1.0.2"
+	}
+}

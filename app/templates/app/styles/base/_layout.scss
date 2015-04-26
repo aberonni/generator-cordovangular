@@ -1,0 +1,25 @@
+html, body {
+	margin:0;
+	padding:0;
+	border:none;
+	min-height:100%;
+
+	&.desktop{
+		user-select:none;
+		
+		&::-webkit-scrollbar, *::-webkit-scrollbar { 
+			width: 0 !important;
+			-ms-overflow-style: none;
+			overflow: -moz-scrollbars-none;
+		}
+	}
+
+	#viewContainer{
+		@include absolute-fill-parent-with-padding(0);
+	}
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}

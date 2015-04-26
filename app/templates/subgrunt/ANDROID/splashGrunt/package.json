@@ -1,0 +1,9 @@
+{
+  "name": "apple-icon-grunt",
+  "version": "0.0.0",
+  "description": "given a hi res icon export all necessary apple icon formats",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-image-resize": "^0.3.0"
+  }
+}

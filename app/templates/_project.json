@@ -1,0 +1,5 @@
+{
+	"name":"<%= app_name %>",
+	"id":"<%= app_id %>",
+	"platforms":<%= app_platforms %>
+}

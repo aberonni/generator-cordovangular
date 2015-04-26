@@ -1,0 +1,37 @@
+@keyframes animate-loader {
+  @for $i from 0 through 75 {
+    $s: ($i * 100) / 75 + "%";
+    #{$s} { background-position: 0 ($i * -250px); }
+  }
+}
+
+@-webkit-keyframes animate-loader {
+  @for $i from 0 through 75 {
+    $s: ($i * 100) / 75 + "%";
+    #{$s} { background-position: 0 ($i * -250px); }
+  }
+}
+
+.loader{
+	@include transform(scale(0));
+
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-125px;
+	margin-top:-125px;
+	
+	width: 0;
+	height: 0;
+	background: url(../images/loader.png);
+	
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: step-start;
+	animation-name: animate-loader;
+
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: step-start;
+	-webkit-animation-name: animate-loader;
+}

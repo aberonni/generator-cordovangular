@@ -1,0 +1,10 @@
+@function ease-out-circ() {
+  @return cubic-bezier(0.075, 0.820, 0.165, 1.000); 
+}
+
+.transition-fast {
+	@include transition-property(all);
+	@include transition-duration(.3s);
+  	@include transition-timing-function(ease-out-circ());
+//  @include transition-delay(2s);
+}
