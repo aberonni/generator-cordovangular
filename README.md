@@ -13,8 +13,7 @@
     - [Android](http://developer.android.com/sdk/index.html#ExistingIDE)
     - etc...
 
-- Download this repository to your computer and `cd` into the downloaded folder
-- Install the generator: `npm link`
+- Install the generator: `npm install -g generator-cordovangular`
 - Run: `yo cordovangular` from the folder where you wish to scaffold the app
 
 ## Usage
@@ -59,7 +58,6 @@ The files that cordova needs in order to compile will be contained in the app/co
 ## TODO
 - Add `grunt keytool` in order to generate the keytool for android
 - Add `grunt build:release` in order to generate app release version for android
-- Add generator to the npm registry so that it can be installed by doing `npm install -g generator-cordovangular`
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
