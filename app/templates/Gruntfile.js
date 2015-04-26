@@ -371,6 +371,19 @@ module.exports = function (grunt) {
 	                }
 	            }
 	        },
+
+	        cordovaRun: {
+	        	command: function (target) {
+                    return 'cordova run ' + target
+                },
+	            options: {
+	                execOptions: {
+	                    cwd: '<%= yeoman.dist %>/../',
+	                    maxBuffer: Infinity
+	                }
+	            }
+	        },
+
 	        cordovaCreate: {
 	        	command: function (target) {
 
@@ -421,7 +434,7 @@ module.exports = function (grunt) {
 					questions: [{
 						config: 'buildCordova',
 						type: 'confirm',
-						message: 'Would you like to build/run for cordova?',
+						message: 'Would you like to run "cordova build"?',
 						default: true
 					}]
 				}
@@ -437,6 +450,27 @@ module.exports = function (grunt) {
 		grunt.config('createId', projectFile.id);
 		grunt.config('createName', projectFile.name);
 		grunt.config('cordovaPlatforms',projectFile.platforms);
+	}
+
+	function getBuildTasks(target){
+		var tasks = [
+			'clean:dist',
+			'wiredep',
+			'useminPrepare',
+			'concurrent:dist',
+			'autoprefixer',
+			'concat',
+			'ngmin',
+			'copy:dist',
+			'copy:'+target,
+			'copy:project',
+			'cssmin',
+			'uglify',
+			'usemin',
+			'htmlmin',
+		]
+
+		return tasks
 	}
 
 
@@ -475,22 +509,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('real_build', 'Compile for deploy', function () {
 		var target = grunt.config('buildTarget')
 
-		var tasks = [
-			'clean:dist',
-			'wiredep',
-			'useminPrepare',
-			'concurrent:dist',
-			'autoprefixer',
-			'concat',
-			'ngmin',
-			'copy:dist',
-			'copy:'+target,
-			'copy:project',
-			'cssmin',
-			'uglify',
-			'usemin',
-			'htmlmin',
-		]
+		var tasks = getBuildTasks(target)
 
 		if (grunt.config('buildIcons') && target != 'browser')
 		{
@@ -507,9 +526,9 @@ module.exports = function (grunt) {
 	});
 
 
-	grunt.registerTask('cordova', 'Build for cordova', function (target, project) {
+	grunt.registerTask('run', 'Serve to emulator/attached device', function (target) {
 
-		var tasks = ['prompt:buildIcons','real_cordova']
+		var tasks = ['prompt:buildIcons','real_run']
 
 		getProjectDetails();
 
@@ -522,11 +541,17 @@ module.exports = function (grunt) {
 
 	});
 
-	grunt.registerTask('real_cordova', 'Called from cordova task', function () {
+	grunt.registerTask('real_run', 'Serve to emulator/attached device', function () {
+		var target = grunt.config('buildTarget')
 
-		var tasks = [
-			'shell:cordova:'+grunt.config('buildTarget')
-		]
+		var tasks = getBuildTasks(target)
+
+		if (grunt.config('buildIcons') && target != 'browser')
+		{
+			tasks.push('subgrunt:'+target);
+		}
+
+		tasks.push('shell:cordovaRun:'+target)
 
 		grunt.task.run(tasks);
 	});

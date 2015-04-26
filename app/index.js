@@ -95,7 +95,7 @@ module.exports = yeoman.generators.Base.extend({
 		this.installDependencies({
 			callback:function(){
 
-				this.log('\nFinished running ' + chalk.yellow('npm install && bower install') + ' for you!\n\nNow creating the '+ chalk.yellow('cordova project') + '.');
+				this.log('\nFinished running ' + chalk.yellow('npm install && bower install') + ' for you!\n\nNow creating the '+ chalk.yellow('cordova project') + '.\n');
 
 				var self = this
 

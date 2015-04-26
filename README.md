@@ -13,8 +13,9 @@
     - [Android](http://developer.android.com/sdk/index.html#ExistingIDE)
     - etc...
 
-- Install the generator: `npm install -g generator-cordovangular`
-- Run: `yo cordovangular`
+- Download this repository to your computer and `cd` into the downloaded folder
+- Install the generator: `npm link`
+- Run: `yo cordovangular` from the folder where you wish to scaffold the app
 
 ## Usage
 Once you have ran `yo cordovangular` and followed the on screen instructions yeoman should now have scaffolded a cordova app for you. This includes a few basic cordova plugins that my template uses, you can check which plugins are installed after scaffolding by running:
@@ -24,6 +25,8 @@ Once you have ran `yo cordovangular` and followed the on screen instructions yeo
 The generator creates a sample webapp based on angular, coffeescript and sass with a few helper files that I have left for personal usage. You can start developing off of my template or just delete the files and start from scratch.
 
 When you build the app (using the instructions in the next section), grunt will automatically export icons and splashcreen in the right sizes for all of cordova's needs.
+
+There are a few grunt tasks that help the deployment of the app, but if you prefer you can run all of the cordova commands directly from the CORDOVA folder as you would normally. Bear in mind that you will always have to run `grunt build` in order to export your app to the CORDOVA folder.
 
 ### Serve to web browser
 `grunt serve`
@@ -35,10 +38,15 @@ Prepares and serves the application as a local web server at [http://localhost:7
 
 Builds current project into the CORDOVA folder and optionally exports icons and splashscreens (you only need to export icons and splashscreens once). Then runs `cordova build`.
 
-### Serve to emulator or attached device (TO BE DONE)
+### Serve to emulator or attached device
 `grunt run`
 
 Builds current project and runs it on emulator/attached device (equivalent to `grunt build && cordova run`)
+
+### Create project
+`grunt create`
+
+**DO NOT** run this command, it is used by the generator during the initial scaffolding.
 
 ## Cordova customization
 The files that cordova needs in order to compile will be contained in the app/config folder once you have scaffolded the app.
@@ -51,7 +59,7 @@ The files that cordova needs in order to compile will be contained in the app/co
 ## TODO
 - Add `grunt keytool` in order to generate the keytool for android
 - Add `grunt build:release` in order to generate app release version for android
-- Add `grunt run` in order to differentiate `cordova run` and `cordova build`
+- Add generator to the npm registry so that it can be installed by doing `npm install -g generator-cordovangular`
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
