@@ -24,7 +24,7 @@ angular
 				controller: 'TestCtrl'
 			.otherwise
 				redirectTo: '/'
-	.run ($rootScope, imagePreloader, config, $q, $timeout, analyticsManager, $location, $window) ->
+	.run ($rootScope, imagePreloader, config, $q, $timeout, $location, $window) ->
 
 		initialized = ()->
 			$rootScope.PRELOADED = true
@@ -38,8 +38,6 @@ angular
 			$timeout ()->
 				timePast.resolve()
 			, 1500
-
-			analyticsManager.init()
 			false
 
 		start = ->

@@ -395,7 +395,7 @@ module.exports = function (grunt) {
 	        			};
 	        		}
 
-	        		shellCommand += ' && cordova plugin add org.apache.cordova.console && cordova plugin add org.apache.cordova.file && cordova plugin add org.apache.cordova.inappbrowser && cordova plugin add org.apache.cordova.dialogs && cordova plugin add https://github.com/danwilson/google-analytics-plugin.git'
+	        		shellCommand += ' && cordova plugin add org.apache.cordova.console && cordova plugin add org.apache.cordova.file && cordova plugin add org.apache.cordova.inappbrowser && cordova plugin add org.apache.cordova.dialogs'
 
                     return shellCommand
                 },
